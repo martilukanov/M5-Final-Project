@@ -5,11 +5,146 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized" >
+
+
     <Grid>
-        <Button Content="Open Tournament" HorizontalAlignment="Center" Margin="0,262,0,0" VerticalAlignment="Top" Height="38" Width="124" Click="Button_Click_1"/>
-        <ComboBox x:Name ="TournamentBox" Margin="271,159,271,241"/>
-        <Button Content="Create Tournament" Margin="334,324,334,76" Click="Button_Click"/>
+
+
+        <!--<Grid.Background>
+            <ImageBrush ImageSource="Resources/background.png" Stretch="Fill"/>
+        </Grid.Background>
+        <Image Margin="212,40,1172,837" Source="Resources/logo.png" />
+        <TextBlock 
+                Text="Welcome" 
+                FontSize="50" 
+                FontFamily="Segoe UI Light"
+                HorizontalAlignment="Center"
+                TextAlignment="Center"
+                Margin="0,353,0,627" Width="250"/>
+        <StackPanel Margin="629,488,629,229">
+            <Border
+            Margin="0,15"
+            BorderBrush="Transparent"
+            Background="#05BFDB"
+            BorderThickness="0"
+            CornerRadius="20" Height="47">
+                <ListBox Cursor="Hand"
+                ScrollViewer.PanningRatio="10"
+                VirtualizingPanel.ScrollUnit="Pixel"
+                ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                x:Name ="TournamentBox"
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="24" Width="300">
+                    
+        SelectionChanged="TeamsBox_SelectionChanged" />
+        ="AddTeam_Click"/>
+        
+                    <ListBoxItem>Option 1</ListBoxItem>
+                    <ListBoxItem>Option 2</ListBoxItem>
+                    <ListBoxItem>Option 3</ListBoxItem>
+                </ListBox>
+            </Border>
+
+            <ComboBox x:Name ="TournamentBox" SelectionChanged="TournamentBox_SelectionChanged" Height="60" Width="448" />
+
+            <Border
+            Margin="0,15"
+            BorderBrush="Transparent"
+            Background="#05BFDB"
+            BorderThickness="0"
+            CornerRadius="20"
+            Height="80" Width="300">
+                <Button
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Cursor="Hand"
+                Content="Open Tournament"
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="24" Width="300" Click="Button_Click_1"/>
+            </Border>
+            <Border
+            Margin="0,15"
+            BorderBrush="Transparent"
+            Background="#05BFDB"
+            BorderThickness="0"
+            CornerRadius="20"
+            Height="80" Width="300">
+                <Button
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Cursor="Hand"
+                Content="Create Tournament"
+                Background="Transparent"
+                Foreground="Black"
+                BorderThickness="0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                FontSize="24" Width="300"  Click="Button_Click"/>
+            </Border>
+        </StackPanel>-->
+
+
+        <Image Margin="709,194,710,757" Source="Resources/logo.png" />
+        <ComboBox x:Name ="TournamentBox" Margin="692,467,692,532" FontSize = "40"/>
+
+        <Border 
+                    Background="White" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="128" Margin="796,878,796,0" >
+            <Button Content="Create Tournament"  FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Margin="14,31,14,31" 
+                        Width="NaN" 
+                        Height="46" 
+                        Padding="10" 
+                        Background="White" 
+                        Foreground="#3EB489" 
+                        FontSize="20" 
+                        FontWeight="Bold" 
+                        Click="Button_Click"/>
+
+        </Border>
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="76" Margin="796,621,796,0" >
+            <Button Content="Open Tournament"  FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Margin="3,-2,3,0" 
+                        Width="170" 
+                        Height="46" 
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="20" 
+                        FontWeight="Bold" 
+                        Click="Button_Click_1"/>
+
+        </Border>
+
+
+
+
+
+
+
+
+
+
+
 
     </Grid>
 </Window>

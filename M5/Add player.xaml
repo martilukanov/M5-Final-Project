@@ -5,18 +5,201 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M5"
         mc:Ignorable="d"
-        Title="Add_player" Height="450" Width="800">
+        Title="Add_player" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized">
     <Grid>
-        <TextBox x:Name="PFirstName" HorizontalAlignment="Left" Margin="45,171,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>
+
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width="400" 
+                    Height="70" Margin="232,256,1288,0">
+            <TextBox x:Name="PFirstName"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="400" Height="70"
+                     Text="First Name"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"
+                     GotFocus ="PFirstName_GotFocus"/>
+        </Border>
+
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width="400" 
+                    Height="70" Margin="232,337,1288,0">
+            <TextBox x:Name="PLastName"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="400" Height="70"
+                     Text="Last Name"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"
+                     GotFocus ="PLastName_GotFocus"/>
+        </Border>
+
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width="400" 
+                    Height="70" Margin="232,419,1288,0">
+            <TextBox x:Name="PAge"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="400" Height="70"
+                     Text="Age"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"
+                     GotFocus ="PAge_GotFocus"/>
+        </Border>
+
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width="400" 
+                    Height="70" Margin="230,499,1290,0">
+            <TextBox x:Name="PEmail"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="400" Height="70"
+                     Text="Email"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"
+                     GotFocus ="PEmail_GotFocus"/>
+        </Border>
+
+
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width="400" 
+                    Height="70" Margin="230,579,1290,0">
+            <TextBox x:Name="PCountry"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="400" Height="70"
+                     Text="Country"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"
+                     GotFocus ="PCountry_GotFocus"/>
+        </Border>
+
+
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width="400" 
+                    Height="70" Margin="230,658,1290,0">
+            <TextBox x:Name="PHeight"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="400" Height="70"
+                     Text="Height"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"
+                     GotFocus ="PHeight_GotFocus"/>
+        </Border>
+
+
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width="400" 
+                    Height="70" Margin="232,737,1288,0">
+            <TextBox x:Name="PWeight"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="400" Height="70"
+                     Text="Weight"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"
+                     GotFocus ="PWeight_GotFocus"/>
+        </Border>
+
+
+        <Border 
+                    Background="Black" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="70" Margin="343,822,1399,0">
+            <Button  x:Name="PAdd" Style="{StaticResource ZoomButtonStyle}" Template="{StaticResource NoMouseOverButtonTemplate}" Foreground="White" Background =" Transparent" FontSize="25" FontFamily="Gill Sans MT" Content="Add Player" HorizontalAlignment="Center" VerticalAlignment="Center" Click="PAdd_Click" Height="69" Width="178"/>
+        </Border>
+
+
+        <!--<TextBox x:Name="PFirstName" HorizontalAlignment="Left" Margin="45,171,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>
+        
         <TextBox x:Name="PLastName" HorizontalAlignment="Left" Margin="45,199,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>
         <TextBox x:Name="PAge" HorizontalAlignment="Left" Margin="45,227,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>
         <TextBox x:Name="PGender" HorizontalAlignment="Left" Margin="45,254,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>
         <TextBox x:Name="PCountry" HorizontalAlignment="Left" Margin="45,282,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>
         <TextBox x:Name="PHeight" HorizontalAlignment="Left" Margin="45,312,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>
-        <TextBox x:Name="PWeight" HorizontalAlignment="Left" Margin="45,340,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>
-        <Button  x:Name="PAdd" Content="Button" HorizontalAlignment="Left" Margin="125,379,0,0" VerticalAlignment="Top" Click="PAdd_Click"/>
-        <DataGrid x:Name ="PDataGrid"  Margin="350,77,62,72"/>
-        <Button Content="Return" HorizontalAlignment="Left" Margin="25,19,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <TextBox x:Name="PWeight" HorizontalAlignment="Left" Margin="45,340,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="199" Height="22"/>-->
+        <!--<Button  x:Name="PAdd" FontSize="25" FontFamily="Gill Sans MT" Content="Add Player" HorizontalAlignment="Left" Margin="365,841,0,0" VerticalAlignment="Top" Click="PAdd_Click" Height="38" Width="134"/>-->
+        <DataGrid x:Name ="PDataGrid" FontSize="20" FontFamily="Gill Sans MT" Background ="#3EB489" CanUserAddRows ="False" Margin="878,280,170,280" >
+            
+        </DataGrid>
+        <Button Content="Back To Create Team" Margin="10,984,1651,10" Background="White" Foreground="#3EB489" FontFamily="Gill Sans MT" FontSize="20" Click="Button_Click"/>
+
+
+        <!--Style="{StaticResource ZoomButtonStyle}" Template="{StaticResource NoMouseOverButtonTemplate}"-->
+
 
     </Grid>
 </Window>

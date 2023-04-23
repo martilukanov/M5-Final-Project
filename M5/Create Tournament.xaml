@@ -5,15 +5,116 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M5"
         mc:Ignorable="d"
-        Title="Create_Tournament" Height="450" Width="800">
+        Title="Create_Tournament" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized">
     <Grid>
-        <TextBox x:Name="TournamentName" TextWrapping="Wrap" Text="Tournament Name" Margin="97,54,522,345"/>
-        <Button Content="Create" Margin="69,112,494,283" Click="Button_Click"/>
-        <DataGrid x:Name="TournamentBox" Margin="337,68,10,93"/>
-        <ComboBox x:Name ="TeamsBox" Margin="69,217,507,172"/>
-        <Button Content="Add Team to Tournament" Margin="110,289,548,110" Click="AddTeamToTouranment"/>
-        <Button Content="Back To Main" Margin="10,374,581,10" Click="Button_Click_1"/>
-        <Button Content="CreateTeam" Margin="114,329,548,65" Click="Button_Click_2"/>
+
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="63" Margin="116,302,1162,0">
+            <TextBox x:Name="TournamentName"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="274" Height="50"
+                     Text="Tournament Name"
+                     GotFocus ="name_GotFocus"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"/>
+        </Border>
+
+        <!--<TextBox x:Name="TournamentName" TextWrapping="Wrap" Text="Tournament Name" Margin="97,54,522,345"/>-->
+
+        <Border 
+                    Background="Black" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="78" Margin="306,491,1352,0">
+
+            <Button Style="{StaticResource ZoomButtonStyle}" Template="{StaticResource NoMouseOverButtonTemplate}" Content="Create" Margin="-10,-11,-10,-10" Click="Button_Click" Background="Transparent" Foreground="White" FontFamily="Gill Sans MT" FontSize="20" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
+        </Border>
+
+
+
+        <Border 
+                    Background="Black" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="78" Margin="1196,808,344,0">
+
+            <Button Style="{StaticResource ZoomButtonStyle}" Template="{StaticResource NoMouseOverButtonTemplate}" Content="Add Team to Tournament" Margin="-10,-10,-10,-10" Click="AddTeamToTouranment" Background="tRANSPARENT" Foreground="White" FontFamily="Gill Sans MT" FontSize="20" Height =" 65 " Width="300" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1" ScaleY="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+
+
+
+        </Border>
+
+
+
+
+        <DataGrid x:Name="TournamentBox" ColumnWidth="*" Margin="992,164,140,466" FontSize="37" FontFamily="Gill Sans MT" Background ="#3EB489" CanUserAddRows ="False">
+            
+            <DataGrid.Resources>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.Resources>
+        
+        </DataGrid>
+        <ComboBox x:Name ="TeamsBox" Margin="1068,678,216,287" FontSize = "30"/>
+
+        <Button Content="Back To Main" Margin="10,984,1651,10" Click="Button_Click_1" Background="White" Foreground="#3EB489" FontFamily="Gill Sans MT" FontSize="20"/>
+        <Button Content="Create / View Team" Margin="1650,984,10,10" Click="Button_Click_2" Background="White" Foreground="#3EB489" FontFamily="Gill Sans MT" FontSize="20"/>
+        <Border 
+            Background="#3EB489" 
+            CornerRadius="20"
+            VerticalAlignment="Top"
+            Padding="10" 
+            Height="63" Margin="116,381,1162,0">
+            <TextBox x:Name="TournamentPrize"
+                Grid.Row="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="274" Height="50"
+                Text="Prize"
+                GotFocus ="prize_GotFocus"
+                TextAlignment="Center"
+                BorderThickness="0"
+                FontSize="30"
+                FontFamily="Gill Sans MT"
+                Background="#3EB489"
+                Foreground="LightGray"/>
+        </Border>
 
     </Grid>
 </Window>

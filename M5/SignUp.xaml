@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M5"
         mc:Ignorable="d"
-        Title="SignUp" Height="1080" Width="1920">
-    
+        Title="SignUp" Height="1080" Width="1920" WindowState="Maximized" ResizeMode="NoResize">
+
     <Page Background="White">
         <!-- Top Section -->
         <Grid>
@@ -45,11 +45,12 @@
                      Width="364" Height="50"
                      Text="Username"
                      TextAlignment="Center"
+                     GotFocus ="username_GotFocus"
                      FontSize="30"
                      FontFamily="Gill Sans MT"
                      Background="#3EB489"
                      BorderThickness="0"
-                     Foreground="LightGray"/>
+                     Foreground="LightGray" TextChanged="username_TextChanged"/>
             </Border>
 
 
@@ -109,13 +110,13 @@
                         Content="Sign Up" 
                         Margin="3,-2,3,0" 
                         Width="170" 
-                        Height="46" 
+                        Height="NaN" 
                         Padding="10" 
                         Background="#3EB489" 
                         Foreground="White" 
                         FontSize="20" 
                         FontWeight="Bold" 
-                        BorderThickness="0"/>
+                        BorderThickness="0" Click="Sign_Up_Click"/>
             </Border>
 
 

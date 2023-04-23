@@ -1,0 +1,50 @@
+﻿<Window x:Class="M5.WinnerPopup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:M5"
+        mc:Ignorable="d"
+        Title="WinnerPopup" Height="400" Width="600">
+    <Grid>
+        <TextBlock TextWrapping="Wrap" Text="Send mails to winner team alerting them of their prize?" Margin="56,73,56,218" TextAlignment="Center" FontFamily="Gill Sans MT" FontSize="30" Foreground="#3EB489"/>
+
+
+
+        <Border 
+                    Background="Black" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="58" Margin="338,286,56,0" RenderTransformOrigin="0.5,0.5">
+            <Border.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Border.RenderTransform>
+            <Button Content="Yes" Margin="-10,-10,-10,-10" Click="Button_Click" Background="Transparent" Foreground ="White" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+        </Border>
+
+        <Border 
+                    Background="Black" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="58" Margin="56,286,339,0">
+            <Button Content="No" Background="Transparent" Foreground ="White"  Margin="-10,-10,-10,-10" Click="Button_Click_1"/>
+        </Border>
+
+    </Grid>
+</Window>

@@ -27,7 +27,7 @@ namespace M5
 
             SqlConnection sqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=M5Tournament; Integrated Security=True");
 
-            string showData = "SELECT [FirstName],[LastName] ,[Age],[Gender],[Country],[Height],[Weight]  FROM Players";
+            string showData = "SELECT [FirstName],[LastName] ,[Age],[email],[Country],[Height],[Weight]  FROM Players";
             SqlCommand cmd2 = new SqlCommand(showData, sqlCon);
             SqlDataAdapter sda = new SqlDataAdapter(cmd2);
             DataTable dt = new DataTable("Employee");
@@ -43,13 +43,13 @@ namespace M5
 
             try
             {
-                string query = $"INSERT INTO Players(FirstName,LastName,Age,Gender,Country, Height, Weight) VALUES('{PFirstName.Text}', '{PLastName.Text}', {PAge.Text}, '{PGender.Text}', '{PCountry.Text}', '{PHeight.Text}', '{PWeight.Text}');";
+                string query = $"INSERT INTO Players(FirstName,LastName,Age,email,Country, Height, Weight) VALUES('{PFirstName.Text}', '{PLastName.Text}', {PAge.Text}, '{PEmail.Text}', '{PCountry.Text}', '{PHeight.Text}', '{PWeight.Text}');";
                 sqlCon.Open();
                 SqlCommand cmd = new SqlCommand(query, sqlCon);
                 cmd.ExecuteNonQuery();
 
 
-                string showData = "SELECT [FirstName],[LastName] ,[Age],[Gender],[Country],[Height],[Weight]  FROM Players";
+                string showData = "SELECT [FirstName],[LastName] ,[Age],[email],[Country],[Height],[Weight]  FROM Players";
                 SqlCommand cmd2 = new SqlCommand(showData, sqlCon);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd2);
                 DataTable dt = new DataTable("Employee");
@@ -71,6 +71,55 @@ namespace M5
             Create_Team create_Team = new Create_Team();
             create_Team.Show();
             this.Close();   
+        }
+
+        private void PWeight_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= PWeight_GotFocus;
+        }
+
+        private void PHeight_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= PHeight_GotFocus;
+        }
+
+        private void PCountry_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= PCountry_GotFocus;
+        }
+
+        private void PEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= PEmail_GotFocus;
+        }
+
+        private void PAge_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= PAge_GotFocus;
+        }
+
+        private void PLastName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= PLastName_GotFocus;
+        }
+
+        private void PFirstName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= PFirstName_GotFocus;
         }
     }
 }

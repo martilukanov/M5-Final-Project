@@ -108,17 +108,29 @@ namespace M5
 
 
         }
+
+        private void TournamentBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 
     public class Tournament
     {
         static string currentTournamentID;
+        static int winnerTeam;
         static public List<string> currentTournamentTeamList = new List<string>();
 
         public string TournamentID
         {
             get { return currentTournamentID; }
             set { currentTournamentID = value; }
+        }
+        public int WinnerTeam
+        {
+            get { return winnerTeam; }
+
+            set { winnerTeam = value; }
         }
 
         public List<string> CurrentTournamentTeamList

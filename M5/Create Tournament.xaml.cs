@@ -44,92 +44,138 @@ namespace M5
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-
-
-            try
-            {
-                //Add new tournament
-                string query = $"INSERT INTO Tournament(tournamentName) VALUES('{TournamentName.Text}');";
-                SqlCon.Open();
-                SqlCommand cmd = new SqlCommand(query, SqlCon);
-                cmd.ExecuteNonQuery();
-                createdTournament=true;
-
-                //Get Created TournamentID
-                SqlCommand cmdAddToListTeam = new SqlCommand($"Select tournamentId from Tournament where tournamentName = '{TournamentName.Text}'", SqlCon);
-                SqlDataReader readerAddToListTeam;
-                readerAddToListTeam = cmdAddToListTeam.ExecuteReader();
-                while (readerAddToListTeam.Read())
-                {
-                    createdTournamentID = readerAddToListTeam["tournamentId"].ToString();
-                }
-
-                readerAddToListTeam.Close();
-
-                //for(int i = 1;i<=8; i++)
-                //{
-                //    string query2 = $"INSERT INTO TournamentTracker(tournamentId,legId) VALUES('{TournamentName.Text}',1);";
-                //    SqlCommand cmd2 = new SqlCommand(query2, SqlCon);
-                //    cmd2.ExecuteNonQuery();
-                //}
-
-
-                MessageBox.Show($"{createdTournamentID}");
-                TournamentBox.Items.Clear();
-
-
-
-
-                
-                
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally { SqlCon.Close(); }
-        }
-
-        private void AddTeamToTouranment(object sender, RoutedEventArgs e)
-        {
-            
-            if (createdTournament == true)
+            int num;
+            if (Int32.TryParse(TournamentPrize.Text.ToString(), out num))
             {
                 try
                 {
-                    string query = $"INSERT INTO TournamentTeams(tournamentId,teamId, stillPlaying) VALUES('{createdTournamentID}','{TeamsBox.SelectedItem.ToString().Substring(0, TeamsBox.SelectedItem.ToString().IndexOf(" "))}',1);";
+                    //Add new tournament
+                    string query = $"INSERT INTO Tournament(tournamentName,prize) VALUES('{TournamentName.Text}', {TournamentPrize.Text});";
                     SqlCon.Open();
                     SqlCommand cmd = new SqlCommand(query, SqlCon);
                     cmd.ExecuteNonQuery();
+                    createdTournament = true;
+
+                    //Get Created TournamentID
+                    SqlCommand cmdAddToListTeam = new SqlCommand($"Select tournamentId from Tournament where tournamentName = '{TournamentName.Text}'", SqlCon);
+                    SqlDataReader readerAddToListTeam;
+                    readerAddToListTeam = cmdAddToListTeam.ExecuteReader();
+                    while (readerAddToListTeam.Read())
+                    {
+                        createdTournamentID = readerAddToListTeam["tournamentId"].ToString();
+                        
+                    }
+                    MessageBox.Show("Tournament created. Add teams!");
+
+                    readerAddToListTeam.Close();
+
+                    //for(int i = 1;i<=8; i++)
+                    //{
+                    //    string query2 = $"INSERT INTO TournamentTracker(tournamentId,legId) VALUES('{TournamentName.Text}',1);";
+                    //    SqlCommand cmd2 = new SqlCommand(query2, SqlCon);
+                    //    cmd2.ExecuteNonQuery();
+                    //}
+
+
+                    TournamentBox.Items.Clear();
+
+
+
+
+
+
+
                 }
-                catch 
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Team already in tournament");
+                    MessageBox.Show(ex.Message);
                 }
-                
-
-                SqlCommand cmdAddToBoxTeam = new SqlCommand($"Select TeamName from Team Right Join TournamentTeams on Team.TeamId = TournamentTeams.teamId where TournamentTeams.tournamentId = {createdTournamentID}", SqlCon);
-                SqlDataAdapter sda = new SqlDataAdapter(cmdAddToBoxTeam);
-                DataTable dt = new DataTable("Employee");
-                sda.Fill(dt);
-                TournamentBox.ItemsSource = dt.DefaultView;
-                SqlCon.Close();
-
-                
-
+                finally { SqlCon.Close(); }
             }
+            else
+            {
+                MessageBox.Show("Prize must be an integer");
+            }
+
+            
+        }
+
+        int amountOfTeams = 0;
+        private void AddTeamToTouranment(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                SqlCon.Open();
+
+                SqlCommand cmd1 = new SqlCommand($"Select Count(teamId) as [teamCount] from TournamentTeams where tournamentId = {createdTournamentID}", SqlCon);
+                SqlDataReader reader1;
+                reader1 = cmd1.ExecuteReader();
+                while (reader1.Read())
+                {
+                    amountOfTeams = Convert.ToInt32(reader1["teamCount"]);
+                }
+                reader1.Close();
+            }
+            catch
+            {
+                MessageBox.Show("You need to create a tournament first");
+            }
+            
+
+
+            
+            if (amountOfTeams < 8)
+            {
+                if (createdTournament == true)
+                {
+                    try
+                    {
+                        string query = $"INSERT INTO TournamentTeams(tournamentId,teamId, stillPlaying) VALUES('{createdTournamentID}','{TeamsBox.SelectedItem.ToString().Substring(0, TeamsBox.SelectedItem.ToString().IndexOf(" "))}',1);";
+                        
+                        SqlCommand cmd = new SqlCommand(query, SqlCon);
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Team already in tournament");
+                    }
+
+
+                    SqlCommand cmdAddToBoxTeam = new SqlCommand($"Select TeamName from Team Right Join TournamentTeams on Team.TeamId = TournamentTeams.teamId where TournamentTeams.tournamentId = {createdTournamentID}", SqlCon);
+                    SqlDataAdapter sda = new SqlDataAdapter(cmdAddToBoxTeam);
+                    DataTable dt = new DataTable("Employee");
+                    sda.Fill(dt);
+                    TournamentBox.ItemsSource = dt.DefaultView;
+                    SqlCon.Close();
+
+
+
+                }
+            }
+
+            SqlCon.Close();
 
 
 
         }
 
+        int attemptsToClose = 0;
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();   
-            mainWindow.Show();  
-            this.Close();
+            if(attemptsToClose > 0 || createdTournament == false || amountOfTeams ==7)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("You havent entered enough teams");
+            }
+            attemptsToClose++;
+            
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -137,6 +183,19 @@ namespace M5
             Create_Team create_Team = new Create_Team();    
             create_Team.Show();
             this.Close();
+        }
+
+        public void name_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= name_GotFocus;
+        }
+        public void prize_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= prize_GotFocus;
         }
     }
 }

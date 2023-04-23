@@ -107,7 +107,8 @@ namespace M5
                 SqlCommand cmd = new SqlCommand(query, SqlCon);
                 cmd.ExecuteNonQuery();
 
-
+                MessageBox.Show("Team created. Add players!");
+                
                 TeamsBox.Items.Clear();
                 
                 SqlCommand cmdAddToListTeam = new SqlCommand("Select TeamId,TeamName from Team", SqlCon);
@@ -148,6 +149,20 @@ namespace M5
             Add_player add_Player = new Add_player();
             add_Player.Show();
             this.Close();   
+        }
+
+        private void Button_Click1(object sender, RoutedEventArgs e)
+        {
+            Create_Tournament create_Tournament = new Create_Tournament();
+            create_Tournament.Show();
+            this.Close();
+        }
+
+        public void name_GotFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = string.Empty;
+            tb.GotFocus -= name_GotFocus;
         }
     }
 }

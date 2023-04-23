@@ -5,23 +5,307 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M5"
         mc:Ignorable="d"
-        Title="TournamentViewer" Height="450" Width="800">
+        Title="TournamentViewer" Height="1080" Width="1920" WindowState="Maximized" ResizeMode="NoResize">
     <Grid>
-        <Button x:Name="L1T1" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T1_Click" Background="Pink"/>
-        <Button x:Name="L1T2" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="55,108,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T2_Click"/>
-        <Button x:Name="L1T3" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="55,216,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T3_Click"/>
-        <Button x:Name="L1T4" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="55,276,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T4_Click"/>
-        <Button x:Name="L1T5" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="618,43,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T5_Click"/>
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10"
+                    Width ="300"
+                    Height="132" Margin="136,199,1484,0" >
+            <Button    x:Name="L1T1" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L1T1_Click"
+                        FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="30" 
+                        FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Width ="300"
+                    Height="132" Margin="136,356,1484,0" >
+            <Button    x:Name="L1T2" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L1T2_Click"
+                        FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="30" 
+                        FontWeight="Bold"/>
+
+        </Border>
+
+
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10"
+                    Width ="300"
+                    Height="132" Margin="136,643,1484,0" >
+            <Button    x:Name="L1T3" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L1T3_Click"
+                        FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="30" 
+                        FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Width ="300"
+                    Height="132" Margin="136,805,1484,0" >
+            <Button    x:Name="L1T4" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L1T4_Click"
+                        FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="30" 
+                        FontWeight="Bold"/>
+
+        </Border>
+
+
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10"
+                    Width ="300"
+                    Height="132" Margin="1499,199,121,0" >
+            <Button    x:Name="L1T5" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L1T5_Click"
+                        FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="30" 
+                        FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width ="300"
+                    Height="132" Margin="1499,351,121,0" >
+            <Button    x:Name="L1T6" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L1T6_Click"
+                        FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="30" 
+                        FontWeight="Bold"/>
+
+        </Border>
+
+
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width ="300"
+                    Height="132" Margin="1499,638,121,0" >
+            <Button    x:Name="L1T7" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L1T7_Click"
+                        FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="30" 
+                        FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+                    Background="#3EB489"
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width ="300"
+                    Height="132" Margin="1499,805,121,0" >
+            <Button    x:Name="L1T8" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L1T8_Click"
+                        FontStyle="Italic"
+                        Style="{StaticResource ZoomButtonStyle}"
+                        Template="{StaticResource NoMouseOverButtonTemplate}"
+                        Padding="10" 
+                        Background="#3EB489" 
+                        Foreground="White" 
+                        FontSize="30" 
+                        FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+            Background="#3EB489"
+            CornerRadius="20"
+            VerticalAlignment="Top"
+            Padding="10" Width ="300"
+            Height="132" Margin="504,280,1116,0" >
+            <Button    x:Name="L2T1" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L2T1_Click"
+                FontStyle="Italic"
+                Style="{StaticResource ZoomButtonStyle}"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Padding="10" 
+                Background="#3EB489" 
+                Foreground="White" 
+                FontSize="30" 
+                FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+            Background="#3EB489"
+            CornerRadius="20"
+            VerticalAlignment="Top"
+            Padding="10" Width ="300"
+            Height="132" Margin="504,709,1116,0" >
+            <Button    x:Name="L2T2" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L2T2_Click"
+                FontStyle="Italic"
+                Style="{StaticResource ZoomButtonStyle}"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Padding="10" 
+                Background="#3EB489" 
+                Foreground="White" 
+                FontSize="30" 
+                FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+            Background="#3EB489"
+            CornerRadius="20"
+            VerticalAlignment="Top"
+            Padding="10" Width ="300"
+            Height="132" Margin="1128,275,492,0" >
+            <Button    x:Name="L2T3" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L2T3_Click"
+                FontStyle="Italic"
+                Style="{StaticResource ZoomButtonStyle}"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Padding="10" 
+                Background="#3EB489" 
+                Foreground="White" 
+                FontSize="30" 
+                FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+            Background="#3EB489"
+            CornerRadius="20"
+            VerticalAlignment="Top"
+            Padding="10" Width ="300"
+            Height="132" Margin="1128,709,492,0" >
+            <Button    x:Name="L2T4" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L2T4_Click"
+                FontStyle="Italic"
+                Style="{StaticResource ZoomButtonStyle}"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Padding="10" 
+                Background="#3EB489" 
+                Foreground="White" 
+                FontSize="30" 
+                FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+            Background="#3EB489"
+            CornerRadius="20"
+            VerticalAlignment="Top"
+            Padding="10" Width ="300"
+            Height="132" Margin="654,490,966,0" >
+            <Button    x:Name="L3T1" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="200" Click="L3T1_Click"
+                FontStyle="Italic"
+                Style="{StaticResource ZoomButtonStyle}"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Padding="10" 
+                Background="#3EB489" 
+                Foreground="White" 
+                FontSize="30" 
+                FontWeight="Bold"/>
+
+        </Border>
+
+        <Border 
+            Background="#3EB489"
+            CornerRadius="20"
+            VerticalAlignment="Top"
+            Padding="10" Width ="300"
+            Height="132" Margin="978,490,642,0" >
+            <Button    x:Name="L3T2" Content="" IsEnabled="False" HorizontalAlignment="Center" VerticalAlignment="Center" Height="132" Width="300" Click="L3T2_Click"
+                FontStyle="Italic"
+                Style="{StaticResource ZoomButtonStyle}"
+                Template="{StaticResource NoMouseOverButtonTemplate}"
+                Padding="10" 
+                Background="#3EB489" 
+                Foreground="White" 
+                FontSize="30" 
+                FontWeight="Bold"/>
+
+        </Border>
+
+        <Button Content="Back To Main" Margin="10,984,1651,10" Click="Button_Click_1" Background="White" Foreground="#3EB489" FontFamily="Gill Sans MT" FontSize="20"/>
+
+        <!--<Button x:Name="L1T1" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="55,48,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T1_Click" Background="Pink"/>-->
+
+        <!--<Button x:Name="L1T2" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="55,108,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T2_Click"/>-->
+
+        <!--<Button x:Name="L1T3" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="55,216,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T3_Click"/>
+
+        <Button x:Name="L1T4" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="55,276,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T4_Click"/>-->
+
+        <!--<Button x:Name="L1T5" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="618,43,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T5_Click"/>
+
         <Button x:Name="L1T6" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="618,103,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T6_Click"/>
+
         <Button x:Name="L1T7" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="618,216,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T7_Click"/>
-        <Button x:Name="L1T8" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="618,276,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T8_Click"/>
-        <Button x:Name="L2T4" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="502,251,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L2T4_Click"/>
+
+        <Button x:Name="L1T8" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="618,276,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L1T8_Click"/>-->
+
+        <!--<Button x:Name="L2T4" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="502,251,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L2T4_Click"/>
+
         <Button x:Name="L2T2" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="163,246,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L2T2_Click"/>
+
         <Button x:Name="L2T3" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="502,83,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L2T3_Click"/>
-        <Button x:Name="L2T1" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="163,78,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L2T1_Click"/>
-        <Button x:Name="L3T1" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="280,161,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L3T1_Click"/>
-        <Button x:Name="L3T2" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="386,161,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L3T2_Click"/>
-        
+
+        <Button x:Name="L2T1" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="163,78,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L2T1_Click"/>-->
+
+        <!--<Button x:Name="L3T1" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="280,161,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L3T1_Click"/>
+
+        <Button x:Name="L3T2" Content="Button" IsEnabled="False" HorizontalAlignment="Left" Margin="386,161,0,0" VerticalAlignment="Top" Height="41" Width="89" Click="L3T2_Click"/>-->
+
+        <Popup Name="myPopup" Width="300" Height="200">
+            <TextBlock Name="myPopupText" 
+                 Background="LightBlue" 
+                 Foreground="Blue">
+        Popup Text
+            </TextBlock>
+        </Popup>
+        <Label x:Name="TournamentName" FontSize="70" FontFamily ="Gill Sans MT" HorizontalAlignment="Center"  Margin="0,50,0,0" Content="" HorizontalContentAlignment="Center"  VerticalAlignment="Top" Width="1259" Height="124"/>
+
 
     </Grid>
 </Window>

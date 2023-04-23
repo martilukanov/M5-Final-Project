@@ -5,34 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:M5"
         mc:Ignorable="d"
-        Title="Create_Team" Height="450" Width="800">
+        Title="Create_Team" Height="1080" Width="1920" ResizeMode="NoResize" WindowState="Maximized">
     <Grid>
         <ComboBox x:Name="PlayersBox"
-                HorizontalAlignment="Left" Margin="474,326,0,0" VerticalAlignment="Top"
-                Width="200"
-                Height="30"
+                HorizontalAlignment="Left" Margin="1535,701,0,0" VerticalAlignment="Top"
+                Width="236"
+                Height="66"
                 BorderThickness="0"
                 Padding="5"
                 FontFamily="Gill Sans MT"
                 Background="#FF3333"
                 Foreground="Black"
-                FontSize="14" SelectionChanged="PlayersBox_SelectionChanged" />
+                FontSize="20" SelectionChanged="PlayersBox_SelectionChanged" />
 
         <ComboBox x:Name="TeamsBox"
-                HorizontalAlignment="Left" Margin="152,326,0,0" VerticalAlignment="Top"
-                Width="200"
-                Height="30"
+                HorizontalAlignment="Left" Margin="850,701,0,0" VerticalAlignment="Top"
+                Width="236"
+                Height="66"
                 BorderThickness="0"
                 Padding="5"
                 FontFamily="Gill Sans MT"
                 Background="#FF3333"
                 Foreground="Black"
-                FontSize="14" SelectionChanged="TeamsBox_SelectionChanged" />
-        <TextBox x:Name = "NewTeamName" HorizontalAlignment="Left" Margin="169,99,0,0" TextWrapping="Wrap" Text="Name of New Team" VerticalAlignment="Top" Width="141" Height="30"/>
-        <Button x:Name="AddTeam" Content="CreateTeam" Margin="193,162,514,240" Click="AddTeam_Click"/>
+                FontSize="20" SelectionChanged="TeamsBox_SelectionChanged" />
 
-        <DataGrid x:Name ="TeamDataGrid"  Margin="414,51,66,165"/>
-        <Button Content="Add New Players" HorizontalAlignment="Left" Margin="527,373,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.164,-0.184" Click="Button_Click"/>
+        <!--<Button x:Name="AddTeam" Content="CreateTeam" Margin="733,183,840,826" Click="AddTeam_Click"/>-->
+
+        <DataGrid x:Name ="TeamDataGrid"  Margin="968,204,270,480" FontSize="30" FontFamily="Gill Sans MT" Background ="#3EB489" CanUserAddRows ="False">
+            
+        </DataGrid>
+        <Border 
+                    Background="#3EB489" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" Width="400" 
+                    Height="70" Margin="148,397,1372,0">
+            <TextBox x:Name="NewTeamName"
+                     Grid.Row="2"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     GotFocus ="name_GotFocus"
+                     HorizontalContentAlignment="Center"
+                     VerticalContentAlignment="Center"
+                     Width="400" Height="70"
+                     Text="Name of New Team"
+                     TextAlignment="Center"
+                     BorderThickness="0"
+                     FontSize="30"
+                     FontFamily="Gill Sans MT"
+                     Background="#3EB489"
+                     Foreground="LightGray"/>
+        </Border>
+
+        <Border 
+                    Background="Black" 
+                    CornerRadius="20"
+                    VerticalAlignment="Top"
+                    Padding="10" 
+                    Height="70" Margin="259,505,1483,0">
+            <Button  x:Name="AddTeam" Style="{StaticResource ZoomButtonStyle}" Template="{StaticResource NoMouseOverButtonTemplate}" Foreground="White" Background =" Transparent" FontSize="25" FontFamily="Gill Sans MT" Content="AddTeam" HorizontalAlignment="Center" VerticalAlignment="Center"  Click="AddTeam_Click" Height="69" Width="178"/>
+        </Border>
+
+        <Button Content="Back To Create Tournament" Margin="10,984,1651,10" Background="White" Foreground="#3EB489" FontFamily="Gill Sans MT" FontSize="20" Click="Button_Click1"/>
+        <Button Content="Add / View Players" Margin="1651,984,10,10" Background="White" Foreground="#3EB489" FontFamily="Gill Sans MT" FontSize="20" Click="Button_Click"/>
+        <TextBlock TextWrapping="Wrap" FontSize="25"  Text="Choose Team" TextAlignment="Center" FontFamily="Gill Sans MT" Foreground="#3EB489" Margin="870,661,854,368"/>
+        <TextBlock TextWrapping="Wrap" FontSize="25"  Text="Click Player to Add" TextAlignment="Center" FontFamily="Gill Sans MT" Foreground="#3EB489" Margin="1494,655,108,374"/>
+
+        <!--Style="{StaticResource ZoomButtonStyle}" Template="{StaticResource NoMouseOverButtonTemplate}"-->
 
     </Grid>
 </Window>

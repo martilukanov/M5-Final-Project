@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -36,6 +39,7 @@ namespace M5
             InitializeComponent();
 
             
+            
             SqlCon.Open();
             
 
@@ -62,6 +66,17 @@ namespace M5
 
             }
             readerleg1 .Close();
+
+
+
+            SqlCommand cmd5 = new SqlCommand($"Select TOP 1 tournamentName from Tournament where tournamentId = {currentTournament.TournamentID}", SqlCon);
+            SqlDataReader reader5;
+            reader5 = cmd5.ExecuteReader();
+            while (reader5.Read())
+            {
+                TournamentName.Content = reader5["tournamentName"].ToString();
+            }
+            reader5.Close();
 
             //Operations before leg 1 has started
             if (Oneleg == false)
@@ -184,22 +199,16 @@ namespace M5
             }
             readerleg2.Close();
 
-            SqlCommand cmdleg3 = new SqlCommand($"Select legId, result from TournamentTracker where tournamentId = '{currentTournament.TournamentID}' AND legId = 3", SqlCon);
+            SqlCommand cmdleg3 = new SqlCommand($"Select legId, result from TournamentTracker where tournamentId = '{currentTournament.TournamentID}' AND legId = 3 AND result = 1" , SqlCon);
             SqlDataReader readerleg3;
             readerleg3 = cmdleg3.ExecuteReader();
-            while (readerleg3.Read())
+            if (readerleg3.Read())
             {
                 
 
-                int teamsLegThreeFinished = 0;
-                if (readerleg3["result"].ToString() == "1" || readerleg3["result"].ToString() == "2")
-                {
-                    teamsLegThreeFinished++;
-                }
-                if (teamsLegThreeFinished == 2)
-                {
-                    ThreelegFinished = true;
-                }
+
+                ThreelegFinished = true;
+   
 
                 Oneleg = false;
                 Twoleg = false;
@@ -208,14 +217,27 @@ namespace M5
             }
             readerleg3.Close();
 
-            SqlCon.Close();
-
-
-
-
-
             
 
+
+            if(ThreelegFinished == true)
+            {
+                using (var cmd = new SqlCommand($"Select teamName from Team right join TournamentTracker on Team.TeamId = TournamentTracker.TeamId where TournamentTracker.tournamentId = {currentTournament.TournamentID} and legId = 3 and result = 1", SqlCon))
+                {
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            TournamentName.Content = "Winners: " + reader["teamName"].ToString();
+
+
+                        }
+                    }
+                }
+            }
+
+            SqlCon.Close();
 
 
         }
@@ -236,11 +258,11 @@ namespace M5
             L1T1.IsEnabled = false;
             L1T2.IsEnabled = false;
 
-            passedButtonContent = L1T1.Content.ToString();
-            eliminatedButtonContent = L1T2.Content.ToString();
+            //passedButtonContent = L1T1.Content.ToString();
+            //eliminatedButtonContent = L1T2.Content.ToString();
 
-            L1T1.Content = passedButtonContent + " " + "(Progressed)";
-            L1T2.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L1T1.Content = passedButtonContent + " " + "(Progressed)";
+            //L1T2.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
 
             ButtonAllocation();
@@ -255,11 +277,11 @@ namespace M5
             L1T1.IsEnabled = false;
             L1T2.IsEnabled = false;
 
-            passedButtonContent = L1T2.Content.ToString();
-            eliminatedButtonContent = L1T1.Content.ToString();
+            //passedButtonContent = L1T2.Content.ToString();
+            //eliminatedButtonContent = L1T1.Content.ToString();
 
-            L1T2.Content = passedButtonContent + " " + "(Progressed)";
-            L1T1.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L1T2.Content = passedButtonContent + " " + "(Progressed)";
+            //L1T1.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
             ButtonAllocation();
         }
@@ -273,11 +295,11 @@ namespace M5
             L1T3.IsEnabled = false;
             L1T4.IsEnabled = false;
 
-            passedButtonContent = L1T3.Content.ToString();
-            eliminatedButtonContent = L1T4.Content.ToString();
+            //passedButtonContent = L1T3.Content.ToString();
+            //eliminatedButtonContent = L1T4.Content.ToString();
 
-            L1T3.Content = passedButtonContent + " " + "(Progressed)";
-            L1T4.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L1T3.Content = passedButtonContent + " " + "(Progressed)";
+            //L1T4.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
             ButtonAllocation();
         }
@@ -292,11 +314,11 @@ namespace M5
             L1T4.IsEnabled = false;
 
 
-            passedButtonContent = L1T4.Content.ToString();
-            eliminatedButtonContent = L1T3.Content.ToString();
+            //passedButtonContent = L1T4.Content.ToString();
+            //eliminatedButtonContent = L1T3.Content.ToString();
 
-            L1T4.Content = passedButtonContent + " " + "(Progressed)";
-            L1T3.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L1T4.Content = passedButtonContent + " " + "(Progressed)";
+            //L1T3.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
             ButtonAllocation();
         }
@@ -310,11 +332,11 @@ namespace M5
             L1T5.IsEnabled = false;
             L1T6.IsEnabled = false;
 
-            passedButtonContent = L1T5.Content.ToString();
-            eliminatedButtonContent = L1T6.Content.ToString();
+            //passedButtonContent = L1T5.Content.ToString();
+            //eliminatedButtonContent = L1T6.Content.ToString();
 
-            L1T5.Content = passedButtonContent + " " + "(Progressed)";
-            L1T6.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L1T5.Content = passedButtonContent + " " + "(Progressed)";
+            //L1T6.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
             ButtonAllocation();
         }
@@ -329,11 +351,11 @@ namespace M5
             L1T6.IsEnabled = false;
 
 
-            passedButtonContent = L1T6.Content.ToString();
-            eliminatedButtonContent = L1T5.Content.ToString();
+            //passedButtonContent = L1T6.Content.ToString();
+            //eliminatedButtonContent = L1T5.Content.ToString();
 
-            L1T6.Content = passedButtonContent + " " + "(Progressed)";
-            L1T5.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L1T6.Content = passedButtonContent + " " + "(Progressed)";
+            //L1T5.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
             ButtonAllocation();
         }
@@ -348,11 +370,11 @@ namespace M5
             L1T8.IsEnabled = false;
 
 
-            passedButtonContent = L1T7.Content.ToString();
-            eliminatedButtonContent = L1T8.Content.ToString();
+            //passedButtonContent = L1T7.Content.ToString();
+            //eliminatedButtonContent = L1T8.Content.ToString();
 
-            L1T7.Content = passedButtonContent + " " + "(Progressed)";
-            L1T8.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L1T7.Content = passedButtonContent + " " + "(Progressed)";
+            //L1T8.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
 
             ButtonAllocation();
@@ -368,11 +390,11 @@ namespace M5
             L1T8.IsEnabled = false;
 
 
-            passedButtonContent = L1T8.Content.ToString();
-            eliminatedButtonContent = L1T7.Content.ToString();
+            //passedButtonContent = L1T8.Content.ToString();
+            //eliminatedButtonContent = L1T7.Content.ToString();
 
-            L1T8.Content = passedButtonContent + " " + "(Progressed)";
-            L1T7.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L1T8.Content = passedButtonContent + " " + "(Progressed)";
+            //L1T7.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
 
             ButtonAllocation();
@@ -388,11 +410,11 @@ namespace M5
             L2T2.IsEnabled = false;
 
 
-            passedButtonContent = L2T1.Content.ToString();
-            eliminatedButtonContent = L2T2.Content.ToString();
+            //passedButtonContent = L2T1.Content.ToString();
+            //eliminatedButtonContent = L2T2.Content.ToString();
 
-            L2T1.Content = passedButtonContent + " " + "(Progressed)";
-            L2T2.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L2T1.Content = passedButtonContent + " " + "(Progressed)";
+            //L2T2.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
 
             ButtonAllocation();
@@ -408,11 +430,11 @@ namespace M5
             L2T2.IsEnabled = false;
 
 
-            passedButtonContent = L2T2.Content.ToString();
-            eliminatedButtonContent = L2T1.Content.ToString();
+            //passedButtonContent = L2T2.Content.ToString();
+            //eliminatedButtonContent = L2T1.Content.ToString();
 
-            L2T2.Content = passedButtonContent + " " + "(Progressed)";
-            L2T1.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L2T2.Content = passedButtonContent + " " + "(Progressed)";
+            //L2T1.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
 
             ButtonAllocation();
@@ -428,11 +450,11 @@ namespace M5
             L2T4.IsEnabled = false;
 
 
-            passedButtonContent = L2T3.Content.ToString();
-            eliminatedButtonContent = L2T4.Content.ToString();
+            //passedButtonContent = L2T3.Content.ToString();
+            //eliminatedButtonContent = L2T4.Content.ToString();
 
-            L2T3.Content = passedButtonContent + " " + "(Progressed)";
-            L2T4.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L2T3.Content = passedButtonContent + " " + "(Progressed)";
+            //L2T4.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
 
             ButtonAllocation();
@@ -448,11 +470,11 @@ namespace M5
             L2T4.IsEnabled = false;
 
 
-            passedButtonContent = L2T4.Content.ToString();
-            eliminatedButtonContent = L2T3.Content.ToString();
+            //passedButtonContent = L2T4.Content.ToString();
+            //eliminatedButtonContent = L2T3.Content.ToString();
 
-            L2T4.Content = passedButtonContent + " " + "(Progressed)";
-            L2T3.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L2T4.Content = passedButtonContent + " " + "(Progressed)";
+            //L2T3.Content = eliminatedButtonContent + " " + "(Eliminated)";
 
 
             ButtonAllocation();
@@ -471,6 +493,7 @@ namespace M5
 
             SqlConnection SqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=M5Tournament; Integrated Security=True");
             Tournament currentTournament = new Tournament();
+            WinnerPopup popup = new WinnerPopup();  
 
             SqlCon.Open();
             string query = $"Update TournamentTracker Set result = 1 where tournamentId = {currentTournament.TournamentID} AND matchId = '{matchId}' and legId = {3} and buttonAllocation = 'L3T1'";
@@ -482,12 +505,32 @@ namespace M5
             cmd2.ExecuteNonQuery();
 
 
-            passedButtonContent = L3T1.Content.ToString();
-            eliminatedButtonContent = L3T2.Content.ToString();
+            //passedButtonContent = L3T1.Content.ToString();
+            //eliminatedButtonContent = L3T2.Content.ToString();
 
 
-            L3T1.Content = passedButtonContent + " " + "(Winner)"; ;
-            L3T2.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L3T1.Content = passedButtonContent + " " + "(Winner)"; ;
+            //L3T2.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            currentTournament.WinnerTeam = teamId;
+
+            using (var cmd3 = new SqlCommand($"Select teamName from Team right join TournamentTracker on Team.TeamId = TournamentTracker.TeamId where TournamentTracker.tournamentId = {currentTournament.TournamentID} and legId = 3 and result = 1", SqlCon))
+            {
+                using (var reader3 = cmd3.ExecuteReader())
+                {
+                    while (reader3.Read())
+                    {
+
+                        TournamentName.Content = "Winners: " + reader3["teamName"].ToString();
+
+
+                    }
+                }
+            }
+
+            popup.Show();
+
+
+
         }
 
         private void L3T2_Click(object sender, RoutedEventArgs e)
@@ -506,6 +549,7 @@ namespace M5
 
             SqlConnection SqlCon = new SqlConnection(@"Data Source=DESKTOP-0K9CBJP\SQLEXPRESS; Initial Catalog=M5Tournament; Integrated Security=True");
             Tournament currentTournament = new Tournament();
+            WinnerPopup popup = new WinnerPopup();
 
             SqlCon.Open();
             string query = $"Update TournamentTracker Set result = 1 where tournamentId = {currentTournament.TournamentID} AND matchId = '{matchId}' and legId = {3} and buttonAllocation = 'L3T2'";
@@ -516,12 +560,29 @@ namespace M5
             SqlCommand cmd2 = new SqlCommand(query2, SqlCon);
             cmd2.ExecuteNonQuery();
 
-            passedButtonContent = L3T2.Content.ToString();
-            eliminatedButtonContent = L3T1.Content.ToString();
+            //passedButtonContent = L3T2.Content.ToString();
+            //eliminatedButtonContent = L3T1.Content.ToString();
 
 
-            L3T2.Content = passedButtonContent + " " + "(Winner)"; ;
-            L3T1.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            //L3T2.Content = passedButtonContent + " " + "(Winner)"; ;
+            //L3T1.Content = eliminatedButtonContent + " " + "(Eliminated)";
+            currentTournament.WinnerTeam = teamId;
+
+            using (var cmd3 = new SqlCommand($"Select teamName from Team right join TournamentTracker on Team.TeamId = TournamentTracker.TeamId where TournamentTracker.tournamentId = {currentTournament.TournamentID} and legId = 3 and result = 1", SqlCon))
+            {
+                using (var reader3 = cmd3.ExecuteReader())
+                {
+                    while (reader3.Read())
+                    {
+
+                        TournamentName.Content = "Winners: " + reader3["teamName"].ToString();
+
+
+                    }
+                }
+            }
+
+            popup.Show();
         }
 
         public void ButtonAllocation()
@@ -603,7 +664,12 @@ namespace M5
 
         }
 
-        
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();   
+            mainWindow.Show();
+            this.Close();
+        }
     }
     public static class Extensions
     {
