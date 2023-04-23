@@ -1,0 +1,19 @@
+﻿<Window x:Class="M5.Create_Tournament"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:M5"
+        mc:Ignorable="d"
+        Title="Create_Tournament" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="TournamentName" TextWrapping="Wrap" Text="Tournament Name" Margin="97,54,522,345"/>
+        <Button Content="Create" Margin="69,112,494,283" Click="Button_Click"/>
+        <DataGrid x:Name="TournamentBox" Margin="337,68,10,93"/>
+        <ComboBox x:Name ="TeamsBox" Margin="69,217,507,172"/>
+        <Button Content="Add Team to Tournament" Margin="110,289,548,110" Click="AddTeamToTouranment"/>
+        <Button Content="Back To Main" Margin="10,374,581,10" Click="Button_Click_1"/>
+        <Button Content="CreateTeam" Margin="114,329,548,65" Click="Button_Click_2"/>
+
+    </Grid>
+</Window>
